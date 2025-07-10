@@ -1,0 +1,41 @@
+name: perspective_quest
+description: A perspective-taking social skills game for children
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  shared_preferences: ^2.2.0
+  audioplayers: ^5.0.0
+  flutter_svg: ^2.0.7
+  confetti: ^0.7.0
+  animations: ^2.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/sounds/
+    - assets/icons/
+  
+  fonts:
+    - family: ComicNeue
+      fonts:
+        - asset: fonts/ComicNeue-Regular.ttf
+        - asset: fonts/ComicNeue-Bold.ttf
+          weight: 700
