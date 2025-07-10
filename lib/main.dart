@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'screens/home_screen.dart';
-import 'providers/game_provider.dart';
-import 'providers/progress_provider.dart';
-import 'utils/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'blocs/app_bloc.dart';
+import 'screens/analyzer_screen.dart';
+import 'services/auth_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize Firebase (you'll need to run `flutterfire configure` first)
+  try {
+    await Firebase.initializeApp();
+  } catch (e) {
+    print('Firebase initialization failed: $e');
+    // Continue without Firebase for now
+  }
+  
   runApp(const PerspectiveQuestApp());
 }
 
 class PerspectiveQuestApp extends StatelessWidget {
-  const PerspectiveQuestApp({Key? key}) : super(key: key);
+  const PerspectiveQuestApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GameProvider()),
-        ChangeNotifierProvider(create: (_) => ProgressProvider()),
-      ],
+    return BlocProvider(
+      create: (context) => AppBloc()..add(LoadUserProgress()),
       child: MaterialApp(
         title: 'Perspective Quest',
-        theme: AppTheme.theme,
-        home: const HomeScreen(),
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+          ),
+        ),
+        home: const AnalyzerScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

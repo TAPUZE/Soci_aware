@@ -1,0 +1,7 @@
+# This is a placeholder file for the TensorFlow Lite model
+# In a real implementation, you would:
+# 1. Train a sentiment/bias detection model
+# 2. Convert it to TensorFlow Lite format
+# 3. Place the .tflite file here
+# 
+# For now, the app will work without the model using keyword-based analysis
