@@ -43,6 +43,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Flutter SDK
+flutter_sdk/
+
 # iOS
 /ios/Flutter/Flutter.framework
 /ios/Flutter/Flutter.podspec
