@@ -13,7 +13,7 @@ class SocialApiService {
   // X OAuth 2.0 PKCE Flow
   Future<String?> authenticateX(BuildContext context) async {
     final controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.enabled)
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(NavigationDelegate(
         onNavigationRequest: (request) {
           if (request.url.startsWith(redirectUri)) {
@@ -99,7 +99,7 @@ class SocialApiService {
   // Instagram Graph API authentication
   Future<String?> authenticateInstagram(BuildContext context) async {
     final controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.enabled)
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setNavigationDelegate(NavigationDelegate(
         onNavigationRequest: (request) {
           if (request.url.startsWith(redirectUri)) {

@@ -15,7 +15,7 @@ dependencies:
   cloud_functions: ^5.1.0
   http: ^1.2.2
   flutter_bloc: ^8.1.6
-  tflite_flutter: ^0.11.0
+  # tflite_flutter: ^0.11.0  # Commented out for web compatibility
   collection: ^1.18.0
   webview_flutter: ^4.9.0
   flutter_secure_storage: ^9.2.2

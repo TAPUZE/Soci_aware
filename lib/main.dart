@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'blocs/app_bloc.dart';
 import 'screens/analyzer_screen.dart';
-import 'services/auth_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Initialize Firebase (you'll need to run `flutterfire configure` first)
-  try {
-    await Firebase.initializeApp();
-  } catch (e) {
-    print('Firebase initialization failed: $e');
-    // Continue without Firebase for now
-  }
-  
+  // Run without Firebase for now to test locally
   runApp(const PerspectiveQuestApp());
 }
 
